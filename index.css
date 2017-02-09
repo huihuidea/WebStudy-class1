@@ -1,0 +1,150 @@
+
+*{margin: 0;padding: 0}
+
+.wrapper{
+
+    width: 960px;
+    background-color: #dde7de;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.header{
+
+    background-color: #82ccdc;
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+.middle{
+
+    /*background-color: #00aa88;*/
+}
+
+.footer{
+
+    background-color: #82ccdc;
+    width: 100%;
+    height: 60px;
+    clear: both;
+    line-height: 60px;
+    text-align: center;
+}
+
+.footer p{
+
+    color: white;
+    font-size: 12px;
+    display: inline;
+
+}
+
+
+/*中间内容的左边*/
+.middle .middle-left{
+
+    width: 300px;
+    float: left;
+    margin: 10px;
+    height: 600px;
+
+}
+/*中间内容的右边*/
+.middle .middle-right{
+
+    width: 630px;
+    float: right;
+    margin: 10px 10px 10px 0;
+}
+/*共同的属性*/
+.middle .middle-left,.middle-right{
+
+    background-color: white;
+
+}
+
+/**/
+.header_list {
+
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.header_list ol{
+
+    list-style: none;
+}
+
+.header_list ol li{
+
+    float: left; margin-right: 30px; ;
+}
+.header_list ol li a{
+
+    color: white
+}
+
+.header_list ol li a:hover{
+    color: green;
+    text-decoration: none;
+}
+.title{
+
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+/*middle*/
+.myself{
+
+    margin-top: 20px;
+    text-align: center;
+}
+.myself img{
+
+    width: 120px;
+    height: 120px;
+    border: 1px darkgrey solid;
+    padding: 10px;
+}
+
+.myself p{
+
+    font-size: 13px;
+}
+/*个人信息*/
+.myselfMsg{
+
+
+}
+.myselfMsg ol{
+    list-style: none;
+}
+.myselfMsg ol li{
+
+    font-size: 13px;
+    margin: 5px;
+}
+
+/*右边内容*/
+.content{
+
+    padding: 10px;
+}
+
+.content h1{
+
+    font-size: 18px;
+}
+.content p{
+
+    font-size: 15px;
+    text-indent: 2em;
+    line-height: 25px;
+
+}

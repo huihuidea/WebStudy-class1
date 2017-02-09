@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>横向两行</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
+</head>
+<body>
+   <div class="wrapper">
+       <!--header-->
+       <div class="header">
+            <div class="title">————黑夜就是我的面纱</div>
+           <!--item-->
+            <div class="header_list">
+                <ol>
+                    <li><a href="#">博客</a></li>
+                    <li><a href="#">Github</a></li>
+                    <li><a href="#">相册</a></li>
+                    <li><a href="#">收藏</a></li>
+                    <li><a href="#">留言</a></li>
+                    <li><a href="#">关于</a></li>
+                </ol>
+            </div>
+       </div>
+       <!--middle-->
+       <div class="middle">
+           <!--左边-->
+            <div class="middle-left">
+                 <div class="myself">
+                     <img src="http://img0.imgtn.bdimg.com/it/u=1593523098,2479335990&fm=21&gp=0.jpg"
+                          alt="loading">
+                     <p>我想我是个假前端</p>
+                 </div>
+
+                <!--个人信息-->
+                <div class="myselfMsg">
+                    <ol>
+                        <li>浏览: 1300000000次</li>
+                        <li>性别: 帅哥</li>
+                        <li>来自：山城</li>
+                        <li>个人资料: H.Born 是个90后的年轻软件工程师,从事ios开发多年，
+                            熟练掌握OC，swift，还掌握前端知识和PHP，Java等语言。
+                        </li>
+                        <li>联系方式: 1888***8888</li>
+                    </ol>
+
+
+                </div>
+            </div>
+          <!--右边-->
+            <div class="middle-right">
+                <div class="content">
+                    <h1>一、MVVM是为viewcontroller瘦身？</h1>
+                    <p>
+                        简单来说，MVVM的横空出世是为了解决MVC模式下的viewcontroller”瘦身”。
+                        在MVC模式下，有一个显著不好的地方，就是viewcontroller即C层，
+                        有人称之为Massive View Controller（臃肿的视图控制器），
+                        为什么称之为臃肿的视图控制器?原因其实很简单，
+                        我们一直都把数据请求服务层放到controller，
+                        包括一些业务逻辑等将其放在controller，
+                        这使得controller代码量很多，这些堆积的代码几乎不被共用，
+                        而且维护性很差。MVC和MVVM之间的区别这里不多赘述，后面会专门来讲述他们的区别。
+                        这篇主要了解MVVM是什么东西。继续跟我的思路走吧，Let we go !
+                    </p>
+                    <h1>二、MVVM具体概念</h1>
+                    <p>
+                        我们都知道，在iOS这边，controller(控制器)的全称是viewcontroller(视图控制器)。既然是视图控制器，那么controller就专门负责管理视图即可，其他的工作就不用负责，在其位某其职即可。那么问题来了，数据请求、业务逻辑层谁负责呢？MVVM就专门构造ViewModel这么一个实体去负责数据请求、业务逻辑这些事情。那么MVVM的具体概念就出来了。
+
+                        M : 必不可少的Model层，负责数据的存储
+                        V ： viewcontroller，负责管理视图（自定义）
+                        VM : viewModel,专门负责数据请求、业务逻辑等业务。
+
+                    </p>
+
+                    <h1>三、那么viewModel不就是Massive ViewModel? </h1>
+                    <p>
+                        相信很多人跟我一样，讲到这里都会产生这么一个问题。
+                        MVVM中viewmodel做的只是将原本放到controller的数据请求、
+                        业务逻辑等代码放到viewModel里面而已，当业务逻辑比较复杂，
+                        那 不是viewModel也很复杂？的确，无可避免。但是，我觉得可以这么解决。
+                        首先，我们重新认识下viewmodel,viewmodel的作用，就是讲controller的逻辑层剥离出来，
+                        自己去处理逻辑层。(在代码里面，无非就是子类化一个对象，传入一些参数，数据进行处理等动作，
+                        然后回调到主线程)。功能可拆分子功能，借鉴“组合优先继承”的思路”去建立多个viewmodel，分工处理。
+                        那么在viewmodel里面，就可能存在多个VM，这样做的好处自然不言而喻咯。
+
+                    </p>
+
+                    <h1>四、关于外界对MVVM的一些评价</h1>
+                    <p>
+                        首先，我们看下MVVM的作者做它做出的评价
+                        MVVM 的作者 John Gossman 的 批评 应该是最为中肯的。John Gossman 对 MVVM 的批评主要有两点：
+
+                        第一点：数据绑定使得 Bug 很难被调试。你看到界面异常了，有可能是你 View 的代码有 Bug，也可能是 Model 的代码有问题。数据绑定使得一个位置的 Bug 被快速传递到别的位置，要定位原始出问题的地方就变得不那么容易了
+                        第二点：对于过大的项目，数据绑定需要花费更多的内存。MVVM 在使用当中，通常还会利用双向绑定技术，使得 Model 变化时，ViewModel 会自动更新，而 ViewModel 变化时，View 也会自动变化。所以，MVVM 模式有些时候又被称作：model-view-binder 模式。
+                        某种意义上来说，我认为就是数据绑定使得 MVVM 变得复杂和难用了。但是，这个缺点同时也被很多人认为是优点。
+
+                        讲下我个人观点:
+                        （1）MVVM 可以兼容你当下使用的 MVC 架构
+                        （2）MVVM 增加你的应用的可测试性
+                        （3）MVVM 在实际使用中，能够使得 Model 层和 View 层解耦
+                        （4）MVVM 并未强制我们使用 ReactiveCocoa，MVVM 是一个伟大的典范。（之后会有文章专门讲述什么是ReactiveCocoa!)
+                    </p>
+
+                    <h1>五.ReactiveCocoa</h1>
+                    <p>
+                        函数式编程（Functional Programming）和响应式编程（React Programming）也是当前很火的两个概念，它们的结合可以很方便地实现数据的绑定。于是，在 iOS 编程中，ReactiveCocoa 横空出世了，它的概念都非常新，包括：
+                        （1）函数式编程（Functional Programming），函数也变成一等公民了，可以拥有和对象同样的功能，例如当成参数传递，当作返回值等。看看 Swift 语言带来的众多函数式编程的特性，就你知道这多 Cool 了。
+                        （2）响应式编程（React Programming），原来我们基于事件（Event）的处理方式都弱了，现在是基于输入（在 ReactiveCocoa 里叫 Signal）的处理方式。输入还可以通过函数式编程进行各种 Combine 或 Filter，尽显各种灵活的处理。
+                        （3）无状态（Stateless），状态是函数的魔鬼，无状态使得函数能更好地测试。
+                        （4）不可修改（Immutable），数据都是不可修改的，使得软件逻辑简单，也可以更好地测试。
+                    </p>
+                </div>
+
+            </div>
+       </div>
+       <!--footer-->
+       <div class="footer">
+          <p> 声明：文章版权属于作者，受法律保护。没有作者书面许可不得转载。若作者同意转载，必须以超链接形式标明文章原始出处和作者。
+              </p>
+       </div>
+   </div>
+
+</body>
+</html>
